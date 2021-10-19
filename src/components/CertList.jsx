@@ -55,6 +55,9 @@ export default function CertList() {
                         <Table.HeaderCell>Days Remaining</Table.HeaderCell>
                         <Table.HeaderCell>Status</Table.HeaderCell>
                         <Table.HeaderCell>Owner ID</Table.HeaderCell>
+
+                        <Table.HeaderCell></Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 

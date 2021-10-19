@@ -46,10 +46,10 @@ export default function UserList() {
                         <Table.HeaderCell>First Name</Table.HeaderCell>
                         <Table.HeaderCell>Last Name</Table.HeaderCell>
                         <Table.HeaderCell>Email</Table.HeaderCell>
-                        <Table.HeaderCell>User Type</Table.HeaderCell>
+                        <Table.HeaderCell>Role</Table.HeaderCell>
 
-                        <Table.HeaderCell>Update</Table.HeaderCell>
-                        <Table.HeaderCell>Delete</Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
