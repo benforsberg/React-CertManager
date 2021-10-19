@@ -1,5 +1,5 @@
 {
-  "name": "crud2",
+  "name": "react-certmanager",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-pro-sidebar": "^0.7.1",
     "react-router-dom": "^5.2.0",

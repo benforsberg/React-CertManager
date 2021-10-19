@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { Helmet } from "react-helmet";
 
 export default function UpdateUser() {
   let history = useHistory();
@@ -30,6 +31,9 @@ export default function UpdateUser() {
   };
   return (
     <div>
+      <Helmet>
+        <title>Edit User - {firstName + ' ' +lastName} </title>
+      </Helmet>
       <Form className="create-form">
         <Form.Field>
           <label>First Name</label>

@@ -30,6 +30,7 @@ import UpdateCert from "./components/UpdateCert";
 
 function App() {
   return (
+    
     <Router>
       <div className="main">
         {/* Source and documentation: https://github.com/azouaoui-med/react-pro-sidebar */}
