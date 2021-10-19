@@ -9,6 +9,7 @@ export default function CreateUser() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  //const [isAdmin, setIsAdmin] = useState(false);
 
   const postData = () => {
     axios
@@ -16,6 +17,7 @@ export default function CreateUser() {
         firstName,
         lastName,
         email,
+        //isAdmin
       })
       .then(() => {
         history.push("/users");
@@ -48,6 +50,13 @@ export default function CreateUser() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Field>
+        {/* <Form.Field>
+          <label>User Type</label>
+          <input
+            placeholder="User Type"
+            onChange={(e) => setIsAdmin(e.target.value)}
+          />
+        </Form.Field> */}
         <Button color="green" onClick={postData} type="submit">
           Create User
         </Button>

@@ -10,12 +10,15 @@ export default function UpdateUser() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  //const [isAdmin, setIsAdmin] = useState();
+
 
   useEffect(() => {
     setID(localStorage.getItem("ID"));
     setFirstName(localStorage.getItem("First Name"));
     setLastName(localStorage.getItem("Last Name"));
     setEmail(localStorage.getItem("Email"));
+    //setIsAdmin(localStorage.getItem("User Type"));
   }, []);
 
   const updateAPIData = () => {
@@ -24,6 +27,7 @@ export default function UpdateUser() {
         firstName,
         lastName,
         email,
+        //isAdmin
       })
       .then(() => {
         history.push("/users");
@@ -59,6 +63,14 @@ export default function UpdateUser() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Field>
+        {/* <Form.Field>
+          <label>User Type</label>
+          <input
+            placeholder="User Type"
+            value={isAdmin}
+            onChange={(e) => setIsAdmin(e.target.value)}
+          />
+        </Form.Field> */}
         <Button color="blue" type="submit" onClick={updateAPIData}>
           Update User
         </Button>
