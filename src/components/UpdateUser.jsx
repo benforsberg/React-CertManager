@@ -10,7 +10,7 @@ export default function UpdateUser() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  //const [isAdmin, setIsAdmin] = useState();
+  const [isAdmin, setIsAdmin] = useState(null);
 
 
   useEffect(() => {
@@ -18,16 +18,16 @@ export default function UpdateUser() {
     setFirstName(localStorage.getItem("First Name"));
     setLastName(localStorage.getItem("Last Name"));
     setEmail(localStorage.getItem("Email"));
-    //setIsAdmin(localStorage.getItem("User Type"));
+    setIsAdmin(localStorage.getItem("User Type"));
   }, []);
 
   const updateAPIData = () => {
     axios
-      .put(`http://192.168.1.25:8080/api/users/${id}`, {
+      .put(`http://localhost:8080/api/users/${id}`, {
         firstName,
         lastName,
         email,
-        //isAdmin
+        isAdmin
       })
       .then(() => {
         history.push("/users");
@@ -63,14 +63,13 @@ export default function UpdateUser() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Field>
-        {/* <Form.Field>
+        <Form.Field>
           <label>User Type</label>
           <input
             placeholder="User Type"
-            value={isAdmin}
-            onChange={(e) => setIsAdmin(e.target.value)}
+            onChange={(e) => setIsAdmin(e.target.value === 'admin' ? 'true' : 'false')}
           />
-        </Form.Field> */}
+        </Form.Field>
         <Button color="blue" type="submit" onClick={updateAPIData}>
           Update User
         </Button>

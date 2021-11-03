@@ -20,7 +20,7 @@ export default function UpdateCert() {
 
   const updateAPIData = () => {
     axios
-      .put(`http://192.168.1.25:8080/api/certs/${id}`, {
+      .put(`http://localhost:8080/api/certs/${id}`, {
         firstName,
         lastName,
         email,

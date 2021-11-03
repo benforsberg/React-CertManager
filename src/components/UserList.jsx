@@ -8,29 +8,34 @@ export default function UserList() {
   const [APIData, setAPIData] = useState([]);
   useEffect(() => {
     // `https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData
-    axios.get(`http://192.168.1.25:8080/api/users`).then((response) => {
+    axios.get(`http://localhost:8080/api/users`).then((response) => {
       console.log(response.data);
       setAPIData(response.data);
     });
   }, []);
 
+  // const setData = (id) => {
+  //   localStorage.setItem("currentUserID", JSON.stringify(id));
+  // };
+
   const setData = (data) => {
-    let { id, firstName, lastName, email, isAdmin } = data;
+    let { id, firstName, lastName, email, isAdmin, certs } = data;
     localStorage.setItem("ID", id);
     localStorage.setItem("First Name", firstName);
     localStorage.setItem("Last Name", lastName);
     localStorage.setItem("Email", email);
-    localStorage.setItem("isAdmin", isAdmin);
+    localStorage.setItem("User Type", isAdmin);
+    localStorage.setItem("Certs", certs);
   };
 
   const getData = () => {
-    axios.get(`http://192.168.1.25:8080/api/users`).then((getData) => {
+    axios.get(`http://localhost:8080/api/users`).then((getData) => {
       setAPIData(getData.data);
     });
   };
 
   const onDelete = (id) => {
-    axios.delete(`http://192.168.1.25:8080/api/users/${id}`).then(() => {
+    axios.delete(`http://localhost:8080/api/users/${id}`).then(() => {
       getData();
     });
   };
@@ -51,6 +56,7 @@ export default function UserList() {
 
               <Table.HeaderCell></Table.HeaderCell>
               <Table.HeaderCell></Table.HeaderCell>
+              <Table.HeaderCell></Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -63,6 +69,22 @@ export default function UserList() {
                   <Table.Cell>{data.lastName}</Table.Cell>
                   <Table.Cell>{data.email}</Table.Cell>
                   <Table.Cell>{data.isAdmin ? "Admin" : "Standard"}</Table.Cell>
+
+                  {/* <Link to="/users/:id">
+                    <Table.Cell>
+                      <Button color="orange" onClick={() => setData(data.id)}>
+                        View
+                      </Button>
+                    </Table.Cell>
+                  </Link> */}
+
+                  <Link to="/user/certs">
+                    <Table.Cell>
+                      <Button color="green" onClick={() => setData(data)}>
+                        Certs
+                      </Button>
+                    </Table.Cell>
+                  </Link>
 
                   <Link to="/edituser">
                     <Table.Cell>

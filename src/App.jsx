@@ -2,7 +2,7 @@ import "./App.css";
 import Create from "./components/CreateUser";
 import UserList from "./components/UserList";
 import Update from "./components/UpdateUser";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link,useParams } from "react-router-dom";
 import {
   ProSidebar,
   Menu,
@@ -27,6 +27,9 @@ import CertList from "./components/CertList";
 import UpdateUser from "./components/UpdateUser";
 import CreateCert from "./components/CreateCert";
 import UpdateCert from "./components/UpdateCert";
+import ViewUserCerts from "./components/ViewUserCerts";
+import GetUser from "./components/GetUser";
+
 
 function App() {
   return (
@@ -86,7 +89,9 @@ function App() {
           <Route exact path="/users" component={UserList} />
           <Route exact path="/adduser" component={CreateUser} />
           <Route exact path="/edituser" component={UpdateUser} />
+          <Route exact path="/users/:id" component={GetUser} />
           {/* Certs  */}
+          <Route exact path="/user/certs" component={ViewUserCerts} />
           <Route exact path="/certs" component={CertList} />
           <Route exact path="/addcert" component={CreateCert} />
           <Route exact path="/editcert" component={UpdateCert} />

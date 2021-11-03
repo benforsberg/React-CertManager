@@ -18,7 +18,7 @@ export default function CreateCert() {
 
   const postData = () => {
     axios
-      .post(`http://192.168.1.25:8080/api/certs`, {
+      .post(`http://localhost:8080/api/certs`, {
         certType,
         certIssuer,
         certExpiration,
@@ -31,6 +31,7 @@ export default function CreateCert() {
       })
       .then(() => {
         history.push("/certs");
+        console.log("Tried to push user data!");
       });
   };
   return (

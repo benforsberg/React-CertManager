@@ -9,15 +9,15 @@ export default function CreateUser() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  //const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const postData = () => {
     axios
-      .post(`http://192.168.1.25:8080/api/users`, {
+      .post(`http://localhost:8080/api/users`, {
         firstName,
         lastName,
         email,
-        //isAdmin
+        isAdmin
       })
       .then(() => {
         history.push("/users");
@@ -50,13 +50,13 @@ export default function CreateUser() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Field>
-        {/* <Form.Field>
+        <Form.Field>
           <label>User Type</label>
           <input
             placeholder="User Type"
-            onChange={(e) => setIsAdmin(e.target.value)}
+            onChange={(e) => setIsAdmin(e.target.value === 'admin' ? 'true' : 'false')}
           />
-        </Form.Field> */}
+        </Form.Field>
         <Button color="green" onClick={postData} type="submit">
           Create User
         </Button>

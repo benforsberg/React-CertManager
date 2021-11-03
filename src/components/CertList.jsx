@@ -6,8 +6,9 @@ import { Helmet } from "react-helmet";
 
 export default function CertList() {
   const [APIData, setAPIData] = useState([]);
+  const [userData, setUserData] = useState([]);
   useEffect(() => {
-    axios.get(`http://192.168.1.25:8080/api/certs`).then((response) => {
+    axios.get(`http://localhost:8080/api/certs`).then((response) => {
       console.log(response.data);
       setAPIData(response.data);
     });
@@ -39,16 +40,22 @@ export default function CertList() {
   };
 
   const getData = () => {
-    axios.get(`http://192.168.1.25:8080/api/certs`).then((getData) => {
+    axios.get(`http://localhost:8080/api/certs`).then((getData) => {
       setAPIData(getData.data);
     });
   };
 
   const onDelete = (id) => {
-    axios.delete(`http://192.168.1.25:8080/api/certs/${id}`).then(() => {
+    axios.delete(`http://localhost:8080/api/certs/${id}`).then(() => {
       getData();
     });
   };
+
+  // const getUser = (id) => {
+  //   axios.get(`http://localhost:8080/api/users/${id}`).then((getUser) => {
+  //     setUserData(getUser.data);
+  //   });
+  // };
 
   return (
     <div className="certList">
