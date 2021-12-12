@@ -20,6 +20,10 @@
   padding: 20px;
   display: flex;
 }
+.user {
+  padding: 20px;
+  display: flex;
+}
 
 .Sidebar {
   display: flex;

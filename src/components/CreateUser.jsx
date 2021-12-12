@@ -24,7 +24,7 @@ export default function CreateUser() {
       });
   };
   return (
-    <div>
+    <div className='user'>
       <Helmet>
         <title>Create User</title>
       </Helmet>

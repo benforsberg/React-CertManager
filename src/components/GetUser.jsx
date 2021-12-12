@@ -47,7 +47,7 @@ export default function GetUser() {
       });
   };
   return (
-    <div>
+    <div className='user'>
       <Helmet>
         <title>View User - {firstName + ' ' +lastName} </title>
       </Helmet>

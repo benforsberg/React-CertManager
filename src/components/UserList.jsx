@@ -20,7 +20,7 @@ export default function UserList() {
 
   const setData = (data) => {
     let { id, firstName, lastName, email, isAdmin, certs } = data;
-    localStorage.setItem("ID", id);
+    localStorage.setItem("User ID", id);
     localStorage.setItem("First Name", firstName);
     localStorage.setItem("Last Name", lastName);
     localStorage.setItem("Email", email);
@@ -54,7 +54,7 @@ export default function UserList() {
               <Table.HeaderCell>Email</Table.HeaderCell>
               <Table.HeaderCell>Role</Table.HeaderCell>
 
-              <Table.HeaderCell></Table.HeaderCell>
+              <Table.HeaderCell>Actions</Table.HeaderCell>
               <Table.HeaderCell></Table.HeaderCell>
               <Table.HeaderCell></Table.HeaderCell>
             </Table.Row>

@@ -15,23 +15,52 @@ export default function CreateCert() {
   const [daysUntilExpired, setdaysUntilExpired] = useState("");
   const [isExpired, setisExpired] = useState(false);
   const [ownerID, setownerID] = useState("");
+  const [APIData, setAPIData] = useState([]);
+  const [userData, setUserData] = useState([]);
+
+
+  async function getUserData (ownerID) {
+    // axios.get(`http://localhost:8080/api/users/${ownerID}`).then((response) => {
+    //   console.log(response.data);
+    //   setUserData(response.data);
+    //   console.log("User Data for ID: " + ownerID + " " + response.data)
+    //   currentUser = response.data;
+    //   console.log("userdata: " + userData);
+    //   console.log("Current User" + currentUser);
+    // });
+
+    const response = await axios.get(`http://localhost:8080/api/users/${ownerID}`)
+    //console.log("User: " + response.data)
+    return response.data
+  };
+
+
 
   const postData = () => {
+    console.log("Trying to create cert for user ID: " + ownerID);
+    let currentUser = getUserData(ownerID);
+    console.log("Info for user " + ownerID + " " + currentUser);
+    let user = ownerID;
+
+
+    let newCert = [certType,
+      certIssuer,
+      certExpiration,
+      certDescription,
+      certCode,
+      certLength,
+      daysUntilExpired,
+      isExpired,
+      user,];
+
     axios
       .post(`http://localhost:8080/api/certs`, {
-        certType,
-        certIssuer,
-        certExpiration,
-        certDescription,
-        certCode,
-        certLength,
-        daysUntilExpired,
-        isExpired,
-        ownerID,
+        newCert
       })
       .then(() => {
         history.push("/certs");
         console.log("Tried to push user data!");
+        console.log("Cert Data: " + newCert);
       });
   };
   return (

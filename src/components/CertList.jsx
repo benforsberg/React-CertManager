@@ -27,7 +27,7 @@ export default function CertList() {
       isExpired,
       ownerID,
     } = data;
-    localStorage.setItem("ID", id);
+    localStorage.setItem("Cert ID", id);
     localStorage.setItem("certType", certType);
     localStorage.setItem("certIssuer", certIssuer);
     localStorage.setItem("certExpiration", certExpiration);
@@ -37,6 +37,7 @@ export default function CertList() {
     localStorage.setItem("daysUntilExpired", daysUntilExpired);
     localStorage.setItem("isExpired", isExpired);
     localStorage.setItem("ownerID", ownerID);
+
   };
 
   const getData = () => {
@@ -65,6 +66,7 @@ export default function CertList() {
       <Table singleLine>
         <Table.Header>
           <Table.Row>
+          <Table.HeaderCell>ID</Table.HeaderCell>
             <Table.HeaderCell>Type</Table.HeaderCell>
             <Table.HeaderCell>Issuer</Table.HeaderCell>
             <Table.HeaderCell>Expiration</Table.HeaderCell>
@@ -84,6 +86,7 @@ export default function CertList() {
           {APIData.map((data) => {
             return (
               <Table.Row key={data.id}>
+                <Table.Cell>{data.id}</Table.Cell>
                 <Table.Cell>{data.certType}</Table.Cell>
                 <Table.Cell>{data.certIssuer}</Table.Cell>
                 <Table.Cell>{data.certExpiration}</Table.Cell>
@@ -93,7 +96,7 @@ export default function CertList() {
                 <Table.Cell>{data.daysUntilExpired}</Table.Cell>
                 <Table.Cell>{data.isExpired ? "Expired" : "Valid"}</Table.Cell>
                 <Table.Cell>{data.ownerID}</Table.Cell>
-                <Link to="/editcert">
+                <Link to='/editcert/${data.id}'>
                   <Table.Cell>
                     <Button color="blue" onClick={() => setData(data)}>
                       Edit

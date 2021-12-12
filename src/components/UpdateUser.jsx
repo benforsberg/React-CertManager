@@ -14,7 +14,7 @@ export default function UpdateUser() {
 
 
   useEffect(() => {
-    setID(localStorage.getItem("ID"));
+    setID(localStorage.getItem("User ID"));
     setFirstName(localStorage.getItem("First Name"));
     setLastName(localStorage.getItem("Last Name"));
     setEmail(localStorage.getItem("Email"));
@@ -34,10 +34,15 @@ export default function UpdateUser() {
       });
   };
   return (
-    <div>
+    <div className='user'> 
       <Helmet>
         <title>Edit User - {firstName + ' ' +lastName} </title>
       </Helmet>
+
+      <h2>
+        Edit User - {firstName} {lastName}
+      </h2>
+
       <Form className="create-form">
         <Form.Field>
           <label>First Name</label>

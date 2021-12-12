@@ -94,7 +94,7 @@ function App() {
           <Route exact path="/user/certs" component={ViewUserCerts} />
           <Route exact path="/certs" component={CertList} />
           <Route exact path="/addcert" component={CreateCert} />
-          <Route exact path="/editcert" component={UpdateCert} />
+          <Route exact path="/editcert/:id" component={UpdateCert} />
 
           <Route exact path="/settings" component={Settings} />
         </Switch>
