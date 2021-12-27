@@ -15,31 +15,52 @@ export default function ViewUserCerts() {
 
 
   useEffect(() => {
-    setID(localStorage.getItem("ID"));
-    setFirstName(localStorage.getItem("First Name"));
-    setLastName(localStorage.getItem("Last Name"));
-    setEmail(localStorage.getItem("Email"));
-    setCerts(localStorage.getItem("certs"))
-    //setIsAdmin(localStorage.getItem("User Type"));
+    setID(sessionStorage.getItem("id"));
+    setFirstName(sessionStorage.getItem("First Name"));
+    setLastName(sessionStorage.getItem("Last Name"));
+    // setEmail(sessionStorage.getItem("Email"));
+    // setCerts(sessionStorage.getItem("certs"))
+    //setIsAdmin(sessionStorage.getItem("User Type"));
+    getUserCerts(id);
+
   }, []);
 
+  let getURL = `http://localhost:8080/api/users/${id}/certs`;
+  let numCerts = 0;
 
   const getUserCerts = (id) => {
-    axios.get(`http://localhost:8080/api/users/${id}/certs`).then((getData) => {
-      setCerts(getData.data.cert);
+    console.log("Checking if null");
+    if (id == null){
+      console.log("User id detected as null")
+      setID(sessionStorage.getItem("id"));
+      let getID = id;
+      console.log ("Detected ID: " + id);
+      console.log ("getID: " + getID);
+    }
+    
+    console.log ("Trying to pull certs from: " + getURL);
+    axios.get(getURL).then((response) => {
+      setCerts(response.data);
+      console.log("Looking for certs for user " + id);
+      numCerts = certs.length;
+      console.log("Found: " + numCerts + " certs.");
+      console.log(certs);
     });
   };
 
   return (
     <div>
-      <Helmet>
+      <Helmet> 
         <title> Certs - { firstName + ' ' +lastName } </title>
       </Helmet>
       
       {/* Show User Certs here in table*/}
       <div>
-        certs
+        Showing certs for {firstName + " " + lastName} who is user ID: {id}
       </div>
+
+
+      
     </div>
   );
 }

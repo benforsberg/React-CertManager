@@ -15,17 +15,17 @@ export default function UserList() {
   }, []);
 
   // const setData = (id) => {
-  //   localStorage.setItem("currentUserID", JSON.stringify(id));
+  //   sessionStorage.setItem("currentUserID", JSON.stringify(id));
   // };
 
   const setData = (data) => {
     let { id, firstName, lastName, email, isAdmin, certs } = data;
-    localStorage.setItem("User ID", id);
-    localStorage.setItem("First Name", firstName);
-    localStorage.setItem("Last Name", lastName);
-    localStorage.setItem("Email", email);
-    localStorage.setItem("User Type", isAdmin);
-    localStorage.setItem("Certs", certs);
+    sessionStorage.setItem("id", id);
+    sessionStorage.setItem("First Name", firstName);
+    sessionStorage.setItem("Last Name", lastName);
+    sessionStorage.setItem("Email", email);
+    sessionStorage.setItem("User Type", isAdmin);
+    sessionStorage.setItem("Certs", certs);
   };
 
   const getData = () => {

@@ -14,11 +14,11 @@ export default function UpdateUser() {
 
 
   useEffect(() => {
-    setID(localStorage.getItem("User ID"));
-    setFirstName(localStorage.getItem("First Name"));
-    setLastName(localStorage.getItem("Last Name"));
-    setEmail(localStorage.getItem("Email"));
-    setIsAdmin(localStorage.getItem("User Type"));
+    setID(sessionStorage.getItem("id"));
+    setFirstName(sessionStorage.getItem("First Name"));
+    setLastName(sessionStorage.getItem("Last Name"));
+    setEmail(sessionStorage.getItem("Email"));
+    setIsAdmin(sessionStorage.getItem("User Type"));
   }, []);
 
   const updateAPIData = () => {
