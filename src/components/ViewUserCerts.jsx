@@ -25,24 +25,23 @@ export default function ViewUserCerts() {
 
   }, []);
 
-  let getURL = `http://localhost:8080/api/users/${id}/certs`;
+  //let getURL = `http://localhost:8080/api/users/${id}/certs`;
+  let getURL = `http://localhost:8080/api/users/0/certs`;
   let numCerts = 0;
 
   const getUserCerts = (id) => {
-    console.log("Checking if null");
+    console.log("Checking user ID");
     if (id == null){
-      console.log("User id detected as null")
       setID(sessionStorage.getItem("id"));
-      let getID = id;
       console.log ("Detected ID: " + id);
-      console.log ("getID: " + getID);
+
     }
     
     console.log ("Trying to pull certs from: " + getURL);
     axios.get(getURL).then((response) => {
       setCerts(response.data);
       console.log("Looking for certs for user " + id);
-      numCerts = certs.length;
+      numCerts = response.data.length;
       console.log("Found: " + numCerts + " certs.");
       console.log(certs);
     });
@@ -59,6 +58,19 @@ export default function ViewUserCerts() {
         Showing certs for {firstName + " " + lastName} who is user ID: {id}
       </div>
 
+       {/* display certs from the API */}
+      {/* {certs && ( */}
+      <div className="certs">
+
+        {/* loop over the certs */}
+        {certs.map((cert, index) => (
+          <div key={index}>
+            <h2>{cert.name}</h2>
+          </div>
+        ))}
+
+      </div>
+    {/* )} */}
 
       
     </div>
