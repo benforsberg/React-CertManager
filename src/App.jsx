@@ -1,8 +1,8 @@
 import "./App.css";
-import Create from "./components/CreateUser";
+//import Create from "./components/CreateUser";
 import UserList from "./components/UserList";
-import Update from "./components/UpdateUser";
-import { BrowserRouter as Router, Route, Switch, Link,useParams } from "react-router-dom";
+//import Update from "./components/UpdateUser";
+import { BrowserRouter as Router, Route, Switch, Link, } from "react-router-dom"; //useParams
 import {
   ProSidebar,
   Menu,
@@ -15,9 +15,9 @@ import {
 import "react-pro-sidebar/dist/css/styles.css";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
-import * as RiIcons from "react-icons/ri";
-import { GrCertificate } from "react-icons/gr";
+//import * as IoIcons from "react-icons/io";
+//import * as RiIcons from "react-icons/ri";
+//import { GrCertificate } from "react-icons/gr";
 import { IoNewspaperOutline } from "react-icons/io5";
 
 import Settings from "./components/Settings";

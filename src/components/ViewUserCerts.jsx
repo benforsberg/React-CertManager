@@ -43,7 +43,7 @@ export default function ViewUserCerts() {
       console.log("Looking for certs for user " + id);
       numCerts = response.data.length;
       console.log("Found: " + numCerts + " certs.");
-      console.log(certs);
+      console.log(certs[0]);
     });
   };
 
