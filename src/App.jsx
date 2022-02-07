@@ -79,7 +79,7 @@ function App() {
             }
           </SidebarContent>
           <SidebarFooter className="sidebar-footer">
-            <h4>Copyright 2021 Ben Forsberg</h4>
+            <h4>© {new Date().getFullYear()} Ben Forsberg</h4>
           </SidebarFooter>
         </ProSidebar>
         <div className="Content"></div>
@@ -89,7 +89,7 @@ function App() {
           <Route exact path="/users" component={UserList} />
           <Route exact path="/adduser" component={CreateUser} />
           <Route exact path="/edituser" component={UpdateUser} />
-          <Route exact path="/users/:id" component={GetUser} />
+          <Route exact path="/users/:id" component={GetUser} /*Include path slug id prop hjere*//>
           {/* Certs  */}
           <Route exact path="/user/certs" component={ViewUserCerts} />
           <Route exact path="/certs" component={CertList} />

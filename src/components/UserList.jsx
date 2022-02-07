@@ -86,6 +86,14 @@ export default function UserList() {
                     </Table.Cell>
                   </Link>
 
+                  <Link to="/users/:id">
+                    <Table.Cell>
+                      <Button color="pink" onClick={() => setData(data)}>
+                        View
+                      </Button>
+                    </Table.Cell>
+                  </Link>
+
                   <Link to="/edituser">
                     <Table.Cell>
                       <Button color="blue" onClick={() => setData(data)}>
